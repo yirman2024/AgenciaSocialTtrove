@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asistente de Guía Inteligente | SocialTrove</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente de Guía Inteligente - SocialTrove</title>
   <style>
     /* === ESTILOS GENERALES === */
     body {
@@ -33,6 +33,34 @@
       font-size: 1.1rem;
     }
 
+    /* === SECCIÓN: PARA QUIÉN ES ESTE SISTEMA === */
+    .for-who {
+      max-width: 900px;
+      margin: 80px auto;
+      text-align: center;
+      background: linear-gradient(145deg, #0d0d0d, #171717);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,114,255,0.3);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .for-who h2 {
+      color: #00c6ff;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    .for-who p {
+      color: #bbb;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .for-who p strong {
+      color: #00e1ff;
+    }
+
     /* === CONTENEDOR PRINCIPAL === */
     .plans {
       display: flex;
@@ -54,6 +82,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      animation: fadeIn 1s ease forwards;
     }
 
     .plan:hover {
@@ -114,10 +143,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .plan {
-      animation: fadeIn 1s ease forwards;
-    }
-
     footer {
       text-align: center;
       padding: 40px;
@@ -125,57 +150,63 @@
       font-size: 0.9rem;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
-
   </style>
 </head>
 <body>
 
-  <h1>Asistente de Guía Inteligente 💡</h1>
-  <p>Automatiza tu negocio con <b>SocialTrove</b> y deja que un asistente de guía inteligente atienda, filtre y convierta clientes por ti 24/7.</p>
+  <h1>Asistente de Guía Inteligente - SocialTrove</h1>
+  <p>Impulsa tus ventas, automatiza respuestas y mejora la atención de tu negocio con inteligencia artificial.</p>
 
-  <div class="plans">
-
-    <div class="plan">
-      <h2>PLAN START</h2>
-      <p class="price">$47 / mes</p>
-      <ul>
-        <li>Instalación en Sellerchat</li>
-        <li>Flujo básico de atención 24/7</li>
-        <li>Captura automática de datos</li>
-        <li>1 actualización mensual</li>
-      </ul>
-      <a href="https://wa.me/573117947704?text=Hola 👋, soy interesado y quiero más información sobre el Asistente de Guía Inteligente de SocialTrove. Estoy interesado en el plan START." class="btn">Solicitar Plan</a>
-    </div>
-
-    <div class="plan">
-      <h2>PLAN PRO</h2>
-      <p class="price">$97 / mes</p>
-      <ul>
-        <li>Embudo conversacional completo</li>
-        <li>Seguimiento automático de leads</li>
-        <li>Integración con Google Sheets / CRM</li>
-        <li>2 actualizaciones mensuales</li>
-      </ul>
-      <a href="https://wa.me/573117947704?text=Hola 👋, soy interesado y quiero más información sobre el Asistente de Guía Inteligente de SocialTrove. Estoy interesado en el plan PRO." class="btn">Solicitar Plan</a>
-    </div>
-
-    <div class="plan">
-      <h2>PLAN ELITE</h2>
-      <p class="price">$197 / mes</p>
-      <ul>
-        <li>Asistente multicanal (WhatsApp, Instagram, Web)</li>
-        <li>Flujo avanzado de ventas y reclutamiento</li>
-        <li>Soporte prioritario y ajustes personalizados</li>
-        <li>Asesoría mensual de automatización</li>
-      </ul>
-      <a href="https://wa.me/573117947704?text=Hola 👋, soy interesado y quiero más información sobre el Asistente de Guía Inteligente de SocialTrove. Estoy interesado en el plan ELITE." class="btn">Solicitar Plan</a>
-    </div>
-
+  <!-- SECCIÓN PARA QUIÉN ES ESTE SISTEMA -->
+  <div class="for-who">
+    <h2>¿Para quién es este sistema?</h2>
+    <p>❌ Emprendedores y negocios que <strong>pierden ventas por no responder a tiempo</strong>.<br>
+       ❌ Pasan horas contestando mensajes sin resultados.<br>
+       ❌ Reciben muchos curiosos pero pocos clientes reales.<br><br>
+       👉 <strong>Tu atención al cliente está colapsando y tus ventas se están escapando.</strong><br>
+       🚀 Este sistema es para ti si quieres delegar, automatizar y aumentar tus conversiones.</p>
   </div>
 
-  <footer>
-    © 2025 SocialTrove | Creando automatización inteligente para emprendedores 🚀
-  </footer>
+  <!-- PLANES -->
+  <div class="plans">
+    <div class="plan">
+      <h2>Plan Básico</h2>
+      <p class="price">$49 / mes</p>
+      <ul>
+        <li>Configuración de SellerChat IA</li>
+        <li>1 asistente personalizado</li>
+        <li>Respuestas automáticas 24/7</li>
+        <li>Soporte por WhatsApp</li>
+      </ul>
+      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan Básico del Asistente de Guía Inteligente de SocialTrove. Mi negocio es sobre...">Quiero este plan</a>
+    </div>
+
+    <div class="plan">
+      <h2>Plan PRO</h2>
+      <p class="price">$99 / mes</p>
+      <ul>
+        <li>Todo en el plan básico</li>
+        <li>Optimización de respuestas IA</li>
+        <li>Reportes semanales de rendimiento</li>
+        <li>Entrenamiento de voz y estilo de marca</li>
+      </ul>
+      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan PRO del Asistente de Guía Inteligente de SocialTrove. Mi negocio es sobre...">Quiero este plan</a>
+    </div>
+
+    <div class="plan">
+      <h2>Plan ELITE</h2>
+      <p class="price">$199 / mes</p>
+      <ul>
+        <li>Todo en el plan PRO</li>
+        <li>Gestión avanzada de leads y ventas</li>
+        <li>Integración con CRM y chat multicanal</li>
+        <li>Asesor estratégico personalizado</li>
+      </ul>
+      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan ELITE del Asistente de Guía Inteligente de SocialTrove. Mi negocio es sobre...">Quiero este plan</a>
+    </div>
+  </div>
+
+  <footer>© 2025 SocialTrove - Todos los derechos reservados</footer>
 
 </body>
 </html>
