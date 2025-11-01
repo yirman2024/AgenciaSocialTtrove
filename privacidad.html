@@ -12,6 +12,7 @@
       color: #fff;
       padding: 40px;
       line-height: 1.7;
+      text-align: center;
     }
 
     h1, h2 {
@@ -22,7 +23,6 @@
     }
 
     h1 {
-      text-align: center;
       margin-bottom: 30px;
       font-size: 2.5rem;
     }
@@ -32,15 +32,27 @@
       font-size: 1.6rem;
     }
 
-    p {
+    p, ul {
       color: #ccc;
       max-width: 900px;
       margin: 15px auto;
     }
 
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    ul li::before {
+      content: "🔹 ";
+      color: #00c6ff;
+    }
+
     a {
       color: #00c6ff;
       text-decoration: none;
+      font-weight: 500;
     }
 
     a:hover {
@@ -52,6 +64,8 @@
       margin-top: 60px;
       color: #777;
       font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 30px;
     }
   </style>
 </head>
@@ -81,14 +95,15 @@
   <p>Implementamos medidas de seguridad avanzadas para proteger tu información contra accesos no autorizados, pérdida o alteración. Tu información nunca será vendida o compartida sin tu permiso.</p>
 
   <h2>4. Derechos del usuario</h2>
-  <p>Puedes solicitar acceso, rectificación o eliminación de tus datos personales en cualquier momento escribiéndonos a <a href="mailto:contacto@socialtrove.com">contacto@socialtrove.com</a>.</p>
+  <p>Puedes solicitar acceso, rectificación o eliminación de tus datos personales en cualquier momento escribiéndonos a <a href="mailto:contacto@socialtroveagency.com">contacto@socialtroveagency.com</a>.</p>
 
   <h2>5. Cambios en esta política</h2>
   <p>Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Los cambios se publicarán en esta página con la fecha de actualización correspondiente.</p>
 
   <div class="footer">
-    © 2025 SocialTrove | Todos los derechos reservados
+    © 2025 SocialTrove Agency | Todos los derechos reservados
   </div>
 
 </body>
 </html>
+
