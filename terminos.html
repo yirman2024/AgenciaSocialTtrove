@@ -12,6 +12,7 @@
       color: #fff;
       padding: 40px;
       line-height: 1.7;
+      text-align: center;
     }
 
     h1, h2 {
@@ -22,7 +23,6 @@
     }
 
     h1 {
-      text-align: center;
       margin-bottom: 30px;
       font-size: 2.5rem;
     }
@@ -32,21 +32,26 @@
       font-size: 1.6rem;
     }
 
-    p {
+    p, ul {
       color: #ccc;
       max-width: 900px;
       margin: 15px auto;
     }
 
     ul {
-      max-width: 900px;
-      margin: 0 auto;
-      color: #bbb;
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: "⚡ ";
+      color: #00c6ff;
     }
 
     a {
       color: #00c6ff;
       text-decoration: none;
+      font-weight: 500;
     }
 
     a:hover {
@@ -58,6 +63,8 @@
       margin-top: 60px;
       color: #777;
       font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 30px;
     }
   </style>
 </head>
@@ -73,14 +80,14 @@
   <h2>2. Responsabilidad del usuario</h2>
   <ul>
     <li>El usuario es responsable del contenido que genera y comparte a través del sistema.</li>
-    <li>No se permite el uso del sistema para spam, fraude, ni actividades ilícitas.</li>
+    <li>No se permite el uso del sistema para spam, fraude ni actividades ilícitas.</li>
   </ul>
 
   <h2>3. Pagos y suscripciones</h2>
   <p>Los planes son de pago mensual y pueden cancelarse en cualquier momento. No se realizan reembolsos parciales por tiempo no utilizado, salvo errores comprobables del sistema.</p>
 
   <h2>4. Propiedad intelectual</h2>
-  <p>Todo el contenido, logotipos y materiales visuales de SocialTrove son propiedad de la marca y no pueden ser utilizados sin autorización previa.</p>
+  <p>Todo el contenido, logotipos y materiales visuales de SocialTrove son propiedad exclusiva de la marca y no pueden ser utilizados sin autorización previa.</p>
 
   <h2>5. Limitación de responsabilidad</h2>
   <p>SocialTrove no se hace responsable por pérdidas indirectas derivadas del uso o mal uso de la plataforma. Los resultados pueden variar según la gestión de cada usuario.</p>
@@ -89,10 +96,10 @@
   <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las actualizaciones se publicarán en esta misma página con la fecha correspondiente.</p>
 
   <h2>7. Contacto</h2>
-  <p>Si tienes dudas sobre estos términos, contáctanos a <a href="mailto:contacto@socialtrove.com">contacto@socialtrove.com</a>.</p>
+  <p>Si tienes dudas sobre estos términos, contáctanos a <a href="mailto:contacto@socialtroveagency.com">contacto@socialtroveagency.com</a>.</p>
 
   <div class="footer">
-    © 2025 SocialTrove | Todos los derechos reservados
+    © 2025 SocialTrove Agency | Todos los derechos reservados
   </div>
 
 </body>
