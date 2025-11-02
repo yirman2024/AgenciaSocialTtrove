@@ -6,6 +6,10 @@
   <title>Asistente de Guía Inteligente - SocialTrove</title>
   <style>
     /* === ESTILOS GENERALES === */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -72,7 +76,97 @@
       color: #00e1ff;
     }
 
-    /* === CONTENEDOR PRINCIPAL === */
+    /* === SECCIÓN DE VIDEO === */
+    .video-section {
+      max-width: 900px;
+      margin: 80px auto;
+      text-align: center;
+      background: linear-gradient(145deg, #0d0d0d, #171717);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,114,255,0.3);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .video-section h2 {
+      color: #00c6ff;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 20px rgba(0,198,255,0.6);
+    }
+
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,114,255,0.3);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 15px;
+      outline: none;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .video-container video:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0,198,255,0.5);
+    }
+
+    /* === CTA DESPUÉS DEL VIDEO === */
+    .cta-video {
+      margin-top: 25px;
+      text-align: center;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .cta-video p {
+      color: #bbb;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    /* === BOTÓN === */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0, 114, 255, 0.5);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(0, 198, 255, 0.8);
+    }
+
+    /* === EFECTO DE BRILLO SUAVE EN EL BOTÓN === */
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: all 0.5s ease;
+    }
+
+    .btn:hover::after {
+      left: 100%;
+    }
+
+    /* === SECCIÓN DE PLANES === */
     .plans {
       display: flex;
       flex-wrap: wrap;
@@ -128,26 +222,6 @@
       color: #00e1ff;
     }
 
-    /* === BOTÓN === */
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background: linear-gradient(90deg, #0072ff, #00c6ff);
-      color: white;
-      font-weight: 600;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(0, 114, 255, 0.5);
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 30px rgba(0, 198, 255, 0.8);
-    }
-
     /* === FOOTER === */
     footer {
       text-align: center;
@@ -174,69 +248,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-
-        /* === SECCIÓN DE VIDEO === */
-    .video-section {
-      max-width: 900px;
-      margin: 80px auto;
-      text-align: center;
-      background: linear-gradient(145deg, #0d0d0d, #171717);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,114,255,0.3);
-      animation: fadeIn 1.2s ease forwards;
-    }
-
-    .video-section h2 {
-      color: #00c6ff;
-      font-size: 2rem;
-      margin-bottom: 25px;
-      text-shadow: 0 0 20px rgba(0,198,255,0.6);
-    }
-
-    .video-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,114,255,0.3);
-    }
-
-    .video-container video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 15px;
-      outline: none;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .video-container video:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(0,198,255,0.5);
-    }
-
-    --------------------------------------------
-
-.cta-video {
-  margin-top: 25px;
-  text-align: center;
-}
-.cta-video p {
-  color: #bbb;
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-}
-
-    
   </style>
 </head>
 <body>
 
-  <header style="text-align:center; margin-top:40px;">
-  <img src="img/logo.png" alt="Logo SocialTrove" style="width:200px; filter: drop-shadow(0 0 15px rgba(0,198,255,0.6)); animation: fadeIn 1.2s ease;">
-</header>
-
-
+  <header>
+    <img src="img/logo.png" alt="Logo SocialTrove">
+  </header>
 
   <h1>Asistente de Guía Inteligente</h1>
   <p>Impulsa tus ventas, automatiza respuestas y mejora la atención de tu negocio con inteligencia artificial.</p>
@@ -251,7 +269,7 @@
        🚀 Este sistema es para ti si quieres delegar, automatizar y aumentar tus conversiones.</p>
   </div>
 
-    <!-- SECCIÓN DE VIDEO -->
+  <!-- SECCIÓN DE VIDEO -->
   <section class="video-section">
     <h2>🎥 Mira cómo funciona</h2>
     <div class="video-container">
@@ -261,16 +279,15 @@
       </video>
     </div>
   </section>
-  
- <!-- Boton CTA -->
-  <div class="cta-video">
-  <p>¿Listo para implementar tu asistente hoy?</p>
-<center>  <a href="https://wa.me/573117947704?text=Quiero%20mi%20Asistente%20IA" class="btn">¡Comienza ahora!</a></center>
-</div>
 
-  
+  <!-- BOTÓN CTA -->
+  <div class="cta-video">
+    <p>¿Listo para implementar tu asistente hoy?</p>
+    <center><a href="#planes" class="btn">¡Comienza ahora!</a></center>
+  </div>
+
   <!-- PLANES -->
-  <div class="plans">
+  <div class="plans" id="planes">
     <div class="plan">
       <h2>Plan Básico</h2>
       <p class="price">$49 / mes</p>
