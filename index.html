@@ -129,7 +129,7 @@
       margin-bottom: 15px;
     }
 
-    /* === BOTÓN === */
+    /* === BOTONES (CTA + PLANES) === */
     .btn {
       display: inline-block;
       padding: 12px 25px;
@@ -144,6 +144,7 @@
       transition: all 0.3s ease;
       position: relative;
       animation: pulseGlow 2.5s infinite ease-in-out;
+      overflow: hidden;
     }
 
     .btn:hover {
@@ -152,21 +153,6 @@
     }
 
     /* === EFECTO DE BRILLO Y PULSO === */
-    .btn::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-      transition: all 0.5s ease;
-    }
-
-    .btn:hover::after {
-      left: 100%;
-    }
-
     @keyframes pulseGlow {
       0% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
       50% { box-shadow: 0 0 30px rgba(0,198,255,0.8); }
@@ -226,7 +212,7 @@
 
     ul li::before {
       content: "⚡ ";
-      color: #00e1ff;
+      color: #ff9900;
     }
 
     /* === FOOTER === */
@@ -304,7 +290,7 @@
         <li>Respuestas automáticas 24/7</li>
         <li>Soporte por WhatsApp</li>
       </ul>
-      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan Básico del Asistente de Guía Inteligente de SocialTrove. Mi negocio es sobre..." target="_blank">Quiero este plan</a>
+      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan Básico..." target="_blank">Quiero este plan</a>
     </div>
 
     <div class="plan">
@@ -316,7 +302,7 @@
         <li>Reportes semanales de rendimiento</li>
         <li>Entrenamiento de voz y estilo de marca</li>
       </ul>
-      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan PRO del Asistente de Guía Inteligente de SocialTrove. Mi negocio es sobre..." target="_blank">Quiero este plan</a>
+      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan PRO..." target="_blank">Quiero este plan</a>
     </div>
 
     <div class="plan">
@@ -328,7 +314,7 @@
         <li>Integración con CRM y chat multicanal</li>
         <li>Asesor estratégico personalizado</li>
       </ul>
-      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan ELITE del Asistente de Guía Inteligente de SocialTrove. Mi negocio es sobre..." target="_blank">Quiero este plan</a>
+      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan ELITE..." target="_blank">Quiero este plan</a>
     </div>
   </div>
 
@@ -341,4 +327,3 @@
 
 </body>
 </html>
-
