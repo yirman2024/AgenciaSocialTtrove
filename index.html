@@ -6,9 +6,7 @@
   <title>Asistente de Guía Inteligente - SocialTrove</title>
   <style>
     /* === ESTILOS GENERALES === */
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -72,9 +70,7 @@
       line-height: 1.8;
     }
 
-    .for-who p strong {
-      color: #00e1ff;
-    }
+    .for-who p strong { color: #00e1ff; }
 
     /* === SECCIÓN DE VIDEO === */
     .video-section {
@@ -142,9 +138,7 @@
       text-decoration: none;
       box-shadow: 0 4px 20px rgba(0, 114, 255, 0.5);
       transition: all 0.3s ease;
-      position: relative;
       animation: pulseGlow 2.5s infinite ease-in-out;
-      overflow: hidden;
     }
 
     .btn:hover {
@@ -152,7 +146,6 @@
       box-shadow: 0 0 30px rgba(0, 198, 255, 0.8);
     }
 
-    /* === EFECTO DE BRILLO Y PULSO === */
     @keyframes pulseGlow {
       0% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
       50% { box-shadow: 0 0 30px rgba(0,198,255,0.8); }
@@ -178,8 +171,6 @@
       width: 300px;
       transition: all 0.4s ease;
       text-align: center;
-      position: relative;
-      overflow: hidden;
       animation: fadeIn 1s ease forwards;
     }
 
@@ -231,11 +222,8 @@
       transition: color 0.3s ease;
     }
 
-    footer a:hover {
-      color: #00e1ff;
-    }
+    footer a:hover { color: #00e1ff; }
 
-    /* === ANIMACIONES === */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -281,6 +269,7 @@
 
   <!-- PLANES -->
   <div class="plans" id="planes">
+    <!-- PLAN BÁSICO -->
     <div class="plan">
       <h2>Plan Básico</h2>
       <p class="price">$49 / mes</p>
@@ -289,30 +278,35 @@
         <li>1 asistente personalizado</li>
         <li>Respuestas automáticas 24/7</li>
         <li>Soporte por WhatsApp</li>
+        <li>Sesión de bienvenida guiada paso a paso</li>
       </ul>
       <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan Básico..." target="_blank">Quiero este plan</a>
     </div>
 
+    <!-- PLAN PRO -->
     <div class="plan">
       <h2>Plan PRO</h2>
       <p class="price">$99 / mes</p>
       <ul>
-        <li>Todo en el plan básico</li>
+        <li>Todo en el Plan Básico</li>
         <li>Optimización de respuestas IA</li>
         <li>Reportes semanales de rendimiento</li>
         <li>Entrenamiento de voz y estilo de marca</li>
+        <li>Dashboard IA en tiempo real con métricas clave</li>
       </ul>
       <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan PRO..." target="_blank">Quiero este plan</a>
     </div>
 
+    <!-- PLAN ELITE -->
     <div class="plan">
       <h2>Plan ELITE</h2>
       <p class="price">$199 / mes</p>
       <ul>
-        <li>Todo en el plan PRO</li>
+        <li>Todo en el Plan PRO</li>
         <li>Gestión avanzada de leads y ventas</li>
         <li>Integración con CRM y chat multicanal</li>
         <li>Asesor estratégico personalizado</li>
+        <li>Soporte VIP 24/7 con prioridad máxima</li>
       </ul>
       <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan ELITE..." target="_blank">Quiero este plan</a>
     </div>
@@ -327,3 +321,4 @@
 
 </body>
 </html>
+
