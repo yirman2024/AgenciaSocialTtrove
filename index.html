@@ -143,6 +143,7 @@
       box-shadow: 0 4px 20px rgba(0, 114, 255, 0.5);
       transition: all 0.3s ease;
       position: relative;
+      animation: pulseGlow 2.5s infinite ease-in-out;
     }
 
     .btn:hover {
@@ -150,7 +151,7 @@
       box-shadow: 0 0 30px rgba(0, 198, 255, 0.8);
     }
 
-    /* === EFECTO DE BRILLO SUAVE EN EL BOTÓN === */
+    /* === EFECTO DE BRILLO Y PULSO === */
     .btn::after {
       content: '';
       position: absolute;
@@ -164,6 +165,12 @@
 
     .btn:hover::after {
       left: 100%;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
+      50% { box-shadow: 0 0 30px rgba(0,198,255,0.8); }
+      100% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
     }
 
     /* === SECCIÓN DE PLANES === */
@@ -334,3 +341,4 @@
 
 </body>
 </html>
+
