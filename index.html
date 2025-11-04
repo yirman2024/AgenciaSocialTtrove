@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asistente de Guía Inteligente - SocialTrove</title>
   <style>
-    /* === ESTILOS GENERALES === */
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -46,8 +44,7 @@
       font-size: 1.1rem;
     }
 
-    /* === SECCIÓN: PARA QUIÉN ES ESTE SISTEMA === */
-    .for-who {
+    .for-who, .video-section {
       max-width: 900px;
       margin: 80px auto;
       text-align: center;
@@ -58,101 +55,42 @@
       animation: fadeIn 1.2s ease forwards;
     }
 
-    .for-who h2 {
+    .for-who h2, .video-section h2 {
       color: #00c6ff;
       font-size: 2rem;
       margin-bottom: 25px;
-    }
-
-    .for-who p {
-      color: #bbb;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .for-who p strong { color: #00e1ff; }
-
-    /* === SECCIÓN DE VIDEO === */
-    .video-section {
-      max-width: 900px;
-      margin: 80px auto;
-      text-align: center;
-      background: linear-gradient(145deg, #0d0d0d, #171717);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,114,255,0.3);
-      animation: fadeIn 1.2s ease forwards;
-    }
-
-    .video-section h2 {
-      color: #00c6ff;
-      font-size: 2rem;
-      margin-bottom: 25px;
-      text-shadow: 0 0 20px rgba(0,198,255,0.6);
-    }
-
-    .video-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,114,255,0.3);
     }
 
     .video-container video {
       width: 100%;
-      height: auto;
-      display: block;
       border-radius: 15px;
-      outline: none;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 10px 25px rgba(0,114,255,0.3);
     }
 
-    .video-container video:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(0,198,255,0.5);
-    }
-
-    /* === CTA DESPUÉS DEL VIDEO === */
-    .cta-video {
-      margin-top: 25px;
-      text-align: center;
-      animation: fadeIn 1.2s ease forwards;
-    }
-
-    .cta-video p {
-      color: #bbb;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-
-    /* === BOTONES === */
     .btn {
       display: inline-block;
       padding: 12px 25px;
       background: linear-gradient(90deg, #0072ff, #00c6ff);
       color: white;
       font-weight: 600;
-      border: none;
       border-radius: 30px;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 4px 20px rgba(0, 114, 255, 0.5);
+      box-shadow: 0 4px 20px rgba(0,114,255,0.5);
       transition: all 0.3s ease;
       animation: pulseGlow 2.5s infinite ease-in-out;
     }
 
     .btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 30px rgba(0, 198, 255, 0.8);
+      box-shadow: 0 0 30px rgba(0,198,255,0.8);
     }
 
     @keyframes pulseGlow {
-      0% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
+      0%,100% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
       50% { box-shadow: 0 0 30px rgba(0,198,255,0.8); }
-      100% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
     }
 
-    /* === SECCIÓN DE PLANES === */
     .plans {
       display: flex;
       flex-wrap: wrap;
@@ -169,9 +107,8 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,114,255,0.3);
       padding: 40px;
       width: 300px;
-      transition: all 0.4s ease;
       text-align: center;
-      animation: fadeIn 1s ease forwards;
+      transition: all 0.4s ease;
     }
 
     .plan:hover {
@@ -179,15 +116,9 @@
       box-shadow: 0 20px 40px rgba(0,114,255,0.6);
     }
 
-    .plan h2 {
-      color: #00aaff;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
     .price {
-      font-size: 1.5rem;
       color: #00e1ff;
+      font-size: 1.5rem;
       margin-bottom: 15px;
       text-shadow: 0 0 10px #00e1ff;
     }
@@ -195,10 +126,8 @@
     ul {
       list-style: none;
       padding: 0;
-      color: #bbb;
       text-align: left;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      color: #bbb;
     }
 
     ul li::before {
@@ -211,17 +140,16 @@
       display: none;
       position: fixed;
       z-index: 9999;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
       justify-content: center;
       align-items: center;
       animation: fadeIn 0.8s ease;
     }
 
     .promo-content {
+      position: relative;
       background: linear-gradient(145deg, #0d0d0d, #171717);
       border-radius: 20px;
       padding: 40px;
@@ -231,35 +159,21 @@
       animation: pulseGlow 3s infinite ease-in-out;
     }
 
-    .promo-content h2 {
-      color: #00e1ff;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
+    .promo-content h2 { color: #00e1ff; margin-bottom: 15px; }
+    .promo-content p { color: #ccc; margin-bottom: 25px; }
+    #countdown { color: #ff4444; font-weight: 700; font-size: 1.3rem; margin-top: 10px; }
 
-    .promo-content p {
-      color: #ccc;
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-    }
-
-    .close-btn {
-      background: linear-gradient(90deg, #0072ff, #00c6ff);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 25px;
-      color: white;
+    .close-x {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 24px;
+      color: #ff4444;
       cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      transition: transform 0.2s ease;
     }
 
-    .close-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(0,198,255,0.8);
-    }
+    .close-x:hover { transform: scale(1.2); }
 
-    /* === FOOTER === */
     footer {
       text-align: center;
       padding: 40px;
@@ -268,58 +182,38 @@
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    footer a {
-      color: #00c6ff;
-      text-decoration: none;
-      margin: 0 10px;
-      transition: color 0.3s ease;
-    }
-
+    footer a { color: #00c6ff; text-decoration: none; }
     footer a:hover { color: #00e1ff; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="img/logo.png" alt="Logo SocialTrove">
-  </header>
+  <header><img src="img/logo.png" alt="Logo SocialTrove"></header>
 
   <h1>Asistente de Guía Inteligente</h1>
   <p>Impulsa tus ventas, automatiza respuestas y mejora la atención de tu negocio con inteligencia artificial.</p>
 
-  <!-- SECCIÓN PARA QUIÉN ES ESTE SISTEMA -->
   <div class="for-who">
     <h2>¿Para quién es este sistema?</h2>
-    <p>❌ Emprendedores y negocios que <strong>pierden ventas por no responder a tiempo</strong>.<br>
+    <p>❌ Negocios que <strong>pierden ventas por no responder a tiempo</strong>.<br>
        ❌ Pasan horas contestando mensajes sin resultados.<br>
-       ❌ Reciben muchos curiosos pero pocos clientes reales.<br><br>
-       👉 <strong>Tu atención al cliente está colapsando y tus ventas se están escapando.</strong><br>
        🚀 Este sistema es para ti si quieres delegar, automatizar y aumentar tus conversiones.</p>
   </div>
 
-  <!-- SECCIÓN DE VIDEO -->
   <section class="video-section">
     <h2>🎥 Mira cómo funciona</h2>
     <div class="video-container">
       <video id="promoVideo" controls autoplay muted>
         <source src="video/Presentacion.mp4" type="video/mp4">
-        Tu navegador no soporta la reproducción de videos.
       </video>
     </div>
   </section>
 
-  <!-- BOTÓN CTA -->
   <div class="cta-video">
     <p>¿Listo para implementar tu asistente hoy?</p>
-    <center><a href="#planes" class="btn">¡Comienza ahora!</a></center>
+    <a href="#planes" class="btn">¡Comienza ahora!</a>
   </div>
 
-  <!-- PLANES -->
   <div class="plans" id="planes">
     <div class="plan">
       <h2>Plan Básico</h2>
@@ -329,9 +223,8 @@
         <li>1 asistente personalizado</li>
         <li>Respuestas automáticas 24/7</li>
         <li>Soporte por WhatsApp</li>
-        <li>Sesión de bienvenida guiada paso a paso</li>
       </ul>
-      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan Básico..." target="_blank">Quiero este plan</a>
+      <a class="btn" href="#">Quiero este plan</a>
     </div>
 
     <div class="plan">
@@ -341,10 +234,8 @@
         <li>Todo en el Plan Básico</li>
         <li>Optimización de respuestas IA</li>
         <li>Reportes semanales de rendimiento</li>
-        <li>Entrenamiento de voz y estilo de marca</li>
-        <li>Dashboard IA en tiempo real con métricas clave</li>
       </ul>
-      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan PRO..." target="_blank">Quiero este plan</a>
+      <a class="btn" href="#">Quiero este plan</a>
     </div>
 
     <div class="plan">
@@ -353,67 +244,86 @@
       <ul>
         <li>Todo en el Plan PRO</li>
         <li>2 asistentes personalizados</li>
-        <li>Gestión avanzada de leads y ventas</li>
-        <li>Integración con CRM y chat multicanal</li>
-        <li>Asesor estratégico personalizado</li>
+        <li>Gestión avanzada de leads</li>
         <li>Soporte VIP 24/7 con prioridad máxima</li>
       </ul>
-      <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan ELITE..." target="_blank">Quiero este plan</a>
+      <a class="btn" href="#">Quiero este plan</a>
     </div>
   </div>
 
   <!-- MODAL PROMOCIONAL -->
   <div class="promo-modal" id="promoModal">
     <div class="promo-content">
+      <span class="close-x" id="closeX">&times;</span>
       <h2>🔥 Promoción Especial 🔥</h2>
-      <p>Obtén el <strong>Plan ELITE</strong> el primer mes por solo <strong>$57 USD</strong>.<br><br> Aprovecha esta oferta exclusiva por tiempo limitado.</p>
-      <a href="https://wa.me/573117947704?text=Hola, quiero aprovechar la promoción del Plan ELITE por $57 USD el primer mes." class="btn" target="_blank">Aprovechar ahora</a><br><br>
-      <button class="close-btn" onclick="closeModal()">Cerrar</button>
+      <p>Obtén el <strong>Plan ELITE</strong> el primer mes por solo <strong>$57 USD</strong>.<br><br>
+      Oferta exclusiva disponible durante las próximas:</p>
+      <div id="countdown">24:00:00</div><br>
+      <a href="#" class="btn">Aprovechar ahora</a>
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 SocialTrove - Todos los derechos reservados</p>
-    <a href="privacidad.html" target="_blank">Política de Privacidad</a> | 
+    <a href="privacidad.html" target="_blank">Política de Privacidad</a> |
     <a href="terminos.html" target="_blank">Términos y Condiciones</a>
   </footer>
 
-  <!-- SCRIPT PROMOCIÓN -->
   <script>
     const modal = document.getElementById('promoModal');
     const video = document.getElementById('promoVideo');
+    const closeX = document.getElementById('closeX');
     let shown = false;
 
-    function openModal() {
-      modal.style.display = 'flex';
-    }
+    // === MODAL ABRIR Y CERRAR ===
+    function openModal() { modal.style.display = 'flex'; }
+    function closeModal() { modal.style.display = 'none'; }
 
-    function closeModal() {
-      modal.style.display = 'none';
-    }
+    closeX.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
     // Mostrar al cargar la página
-    window.addEventListener('load', () => {
-      setTimeout(openModal, 2500); // aparece tras 2.5s
-    });
+    window.addEventListener('load', () => setTimeout(openModal, 2500));
 
-    // Mostrar cuando el video llega a la mitad o finaliza
+    // Mostrar cuando el video llega a la mitad o termina
     video.addEventListener('timeupdate', () => {
-      const mitad = video.duration / 2;
-      if (!shown && video.currentTime >= mitad) {
-        openModal();
-        shown = true;
+      if (!shown && video.currentTime >= video.duration / 2) {
+        openModal(); shown = true;
       }
     });
+    video.addEventListener('ended', () => { if (!shown) { openModal(); shown = true; }});
 
-    video.addEventListener('ended', () => {
-      if (!shown) {
-        openModal();
-        shown = true;
+    // === CUENTA REGRESIVA 24H (PERSISTENTE) ===
+    const countdownEl = document.getElementById('countdown');
+    const hours = 24 * 60 * 60 * 1000;
+
+    function startCountdown() {
+      let endTime = localStorage.getItem('promoEndTime');
+      const now = new Date().getTime();
+
+      if (!endTime || now > endTime) {
+        endTime = now + hours;
+        localStorage.setItem('promoEndTime', endTime);
       }
-    });
+
+      const timer = setInterval(() => {
+        const current = new Date().getTime();
+        let remaining = endTime - current;
+
+        if (remaining <= 0) {
+          endTime = new Date().getTime() + hours;
+          localStorage.setItem('promoEndTime', endTime);
+          remaining = hours;
+        }
+
+        const h = String(Math.floor(remaining / (1000 * 60 * 60))).padStart(2, '0');
+        const m = String(Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        const s = String(Math.floor((remaining % (1000 * 60)) / 1000)).padStart(2, '0');
+        countdownEl.textContent = `${h}:${m}:${s}`;
+      }, 1000);
+    }
+
+    startCountdown();
   </script>
-
 </body>
 </html>
