@@ -135,6 +135,19 @@
       color: #ff9900;
     }
 
+    /* === CTA === */
+    .cta-video {
+      text-align: center;
+      margin: 60px auto;
+      max-width: 700px;
+    }
+
+    .cta-video p {
+      font-size: 1.3rem;
+      color: #00c6ff;
+      margin-bottom: 20px;
+    }
+
     /* === CONTADOR DE USUARIOS === */
     .user-counter {
       display: flex;
@@ -231,6 +244,12 @@
       </video>
     </div>
   </section>
+
+  <!-- CTA DEBAJO DEL VIDEO -->
+  <div class="cta-video">
+    <p>¿Listo para implementar tu asistente hoy?</p>
+    <center><a href="#planes" class="btn">¡Comienza ahora!</a></center>
+  </div>
 
   <!-- CONTADOR DE USUARIOS -->
   <div class="user-counter">
@@ -349,7 +368,6 @@
     localStorage.setItem('userCount', userCount);
     userCountEl.textContent = userCount.toLocaleString();
 
-    // Incrementar contador al hacer clic en un plan o en "Aprovechar ahora"
     function incrementarContador() {
       userCount++;
       localStorage.setItem('userCount', userCount);
