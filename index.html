@@ -44,7 +44,7 @@
       font-size: 1.1rem;
     }
 
-    .for-who, .video-section {
+    .for-who, .video-section, .user-counter {
       max-width: 900px;
       margin: 80px auto;
       text-align: center;
@@ -55,7 +55,7 @@
       animation: fadeIn 1.2s ease forwards;
     }
 
-    .for-who h2, .video-section h2 {
+    .for-who h2, .video-section h2, .user-counter h2 {
       color: #00c6ff;
       font-size: 2rem;
       margin-bottom: 25px;
@@ -135,6 +135,28 @@
       color: #ff9900;
     }
 
+    /* === CONTADOR DE USUARIOS === */
+    .user-counter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .counter-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #00e1ff;
+      text-shadow: 0 0 25px rgba(0,198,255,0.7);
+      margin-top: 10px;
+    }
+
+    .counter-label {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 5px;
+    }
+
     /* === MODAL PROMOCIONAL === */
     .promo-modal {
       display: none;
@@ -194,12 +216,12 @@
   <p>Impulsa tus ventas, automatiza respuestas y mejora la atención de tu negocio con inteligencia artificial.</p>
 
   <div class="for-who">
-    <h2>¿Para quién es este sistema?</h2> 
+    <h2>¿Para quién es este sistema?</h2>
     <p>❌ Emprendedores y negocios que <strong>pierden ventas por no responder a tiempo</strong>.
-      <br> ❌ Pasan horas contestando mensajes sin resultados.
-      <br> ❌ Reciben muchos curiosos pero pocos clientes reales.<br><br> 
-      👉 <strong>Tu atención al cliente está colapsando y tus ventas se están escapando.</strong><br> 
-      🚀 Este sistema es para ti si quieres delegar, automatizar y aumentar tus conversiones.</p> </div>
+    <br> ❌ Pasan horas contestando mensajes sin resultados.
+    <br> ❌ Reciben muchos curiosos pero pocos clientes reales.<br><br> 
+    🚀 Este sistema es para ti si quieres delegar, automatizar y aumentar tus conversiones.</p>
+  </div>
 
   <section class="video-section">
     <h2>🎥 Mira cómo funciona</h2>
@@ -209,6 +231,13 @@
       </video>
     </div>
   </section>
+
+  <!-- NUEVA SECCIÓN CONTADOR -->
+  <div class="user-counter">
+    <h2>Usuarios Activos del Servicio</h2>
+    <div id="userCount" class="counter-number">0</div>
+    <div class="counter-label">personas ya están utilizando el asistente inteligente</div>
+  </div>
 
   <div class="cta-video">
     <p>¿Listo para implementar tu asistente hoy?</p>
@@ -271,28 +300,24 @@
   </footer>
 
   <script>
+    // === MODAL ===
     const modal = document.getElementById('promoModal');
     const video = document.getElementById('promoVideo');
     const closeX = document.getElementById('closeX');
     let shown = false;
 
-    // === MODAL ABRIR Y CERRAR ===
     function openModal() { modal.style.display = 'flex'; }
     function closeModal() { modal.style.display = 'none'; }
 
     closeX.addEventListener('click', closeModal);
     modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-
-    // Mostrar al cargar la página
     window.addEventListener('load', () => setTimeout(openModal, 2500));
 
-    // Mostrar cuando el video llega a la mitad o termina
     video.addEventListener('timeupdate', () => {
       if (!shown && video.currentTime >= video.duration / 2) {
         openModal(); shown = true;
       }
     });
-    video.addEventListener('ended', () => { if (!shown) { openModal(); shown = true; }});
 
     // === CUENTA REGRESIVA 24H (PERSISTENTE) ===
     const countdownEl = document.getElementById('countdown');
@@ -301,30 +326,34 @@
     function startCountdown() {
       let endTime = localStorage.getItem('promoEndTime');
       const now = new Date().getTime();
-
       if (!endTime || now > endTime) {
         endTime = now + hours;
         localStorage.setItem('promoEndTime', endTime);
       }
 
-      const timer = setInterval(() => {
+      setInterval(() => {
         const current = new Date().getTime();
         let remaining = endTime - current;
-
         if (remaining <= 0) {
           endTime = new Date().getTime() + hours;
           localStorage.setItem('promoEndTime', endTime);
           remaining = hours;
         }
-
-        const h = String(Math.floor(remaining / (1000 * 60 * 60))).padStart(2, '0');
-        const m = String(Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-        const s = String(Math.floor((remaining % (1000 * 60)) / 1000)).padStart(2, '0');
+        const h = String(Math.floor(remaining / (1000*60*60))).padStart(2,'0');
+        const m = String(Math.floor((remaining%(1000*60*60))/(1000*60))).padStart(2,'0');
+        const s = String(Math.floor((remaining%(1000*60))/1000)).padStart(2,'0');
         countdownEl.textContent = `${h}:${m}:${s}`;
       }, 1000);
     }
-
     startCountdown();
+
+    // === CONTADOR DE USUARIOS ===
+    const userCountEl = document.getElementById('userCount');
+    let userCount = localStorage.getItem('userCount') ? parseInt(localStorage.getItem('userCount')) : 80;
+    userCount++;
+    localStorage.setItem('userCount', userCount);
+    userCountEl.textContent = userCount.toLocaleString();
   </script>
 </body>
 </html>
+
