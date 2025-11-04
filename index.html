@@ -250,7 +250,7 @@
         <li>Respuestas automáticas 24/7</li>
         <li>Soporte por WhatsApp</li>
       </ul>
-      <a class="btn plan-btn" data-plan="Básico" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20más%20acceder%20a%20el%20Plan%20Básico%20de%20SocialTrove." target="_blank">Quiero este plan</a>
+      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20Básico%20de%20SocialTrove." target="_blank">Quiero este plan</a>
     </div>
 
     <div class="plan">
@@ -261,7 +261,7 @@
         <li>Optimización de respuestas IA</li>
         <li>Reportes semanales de rendimiento</li>
       </ul>
-      <a class="btn plan-btn" data-plan="PRO" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20más%20acceder%20a%20el%20Plan%20PRO%20de%20SocialTrove." target="_blank">Quiero este plan</a>
+      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20PRO%20de%20SocialTrove." target="_blank">Quiero este plan</a>
     </div>
 
     <div class="plan">
@@ -273,7 +273,7 @@
         <li>Gestión avanzada de leads</li>
         <li>Soporte VIP 24/7 con prioridad máxima</li>
       </ul>
-      <a class="btn plan-btn" data-plan="ELITE" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20más%20acceder%20a%20el%20Plan%20ELITE%20de%20SocialTrove." target="_blank">Quiero este plan</a>
+      <a class="btn plan-btn" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20acceder%20al%20Plan%20ELITE%20de%20SocialTrove." target="_blank">Quiero este plan</a>
     </div>
   </div>
 
@@ -285,7 +285,7 @@
       <p>Obtén el <strong>Plan ELITE</strong> el primer mes por solo <strong>$57 USD</strong>.<br><br>
       Oferta exclusiva disponible durante las próximas:</p>
       <div id="countdown">24:00:00</div><br>
-      <a href="https://wa.me/573117947704?text=Hola%2C%20quiero%20aprovechar%20la%20promoción%20del%20Plan%20ELITE%20por%2057%20USD." class="btn" target="_blank">Aprovechar ahora</a>
+      <a href="https://wa.me/573117947704?text=Hola%2C%20quiero%20aprovechar%20la%20promoción%20del%20Plan%20ELITE%20por%2057%20USD." class="btn aprovecha-btn" target="_blank">Aprovechar ahora</a>
     </div>
   </div>
 
@@ -349,16 +349,18 @@
     localStorage.setItem('userCount', userCount);
     userCountEl.textContent = userCount.toLocaleString();
 
-    // Incrementar contador al hacer clic en un plan
+    // Incrementar contador al hacer clic en un plan o en "Aprovechar ahora"
+    function incrementarContador() {
+      userCount++;
+      localStorage.setItem('userCount', userCount);
+      userCountEl.textContent = userCount.toLocaleString();
+    }
+
     document.querySelectorAll('.plan-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        userCount++;
-        localStorage.setItem('userCount', userCount);
-        userCountEl.textContent = userCount.toLocaleString();
-      });
+      btn.addEventListener('click', incrementarContador);
     });
+
+    document.querySelector('.aprovecha-btn').addEventListener('click', incrementarContador);
   </script>
 </body>
 </html>
-
-
