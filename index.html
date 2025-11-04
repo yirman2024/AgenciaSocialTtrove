@@ -217,9 +217,9 @@
 
   <div class="for-who">
     <h2>¿Para quién es este sistema?</h2>
-    <p>❌ Emprendedores y negocios que <strong>pierden ventas por no responder a tiempo</strong>.
-    <br> ❌ Pasan horas contestando mensajes sin resultados.
-    <br> ❌ Reciben muchos curiosos pero pocos clientes reales.<br><br> 
+    <p>❌ Emprendedores y negocios que <strong>pierden ventas por no responder a tiempo</strong>.<br>
+    ❌ Pasan horas contestando mensajes sin resultados.<br>
+    ❌ Reciben muchos curiosos pero pocos clientes reales.<br><br>
     🚀 Este sistema es para ti si quieres delegar, automatizar y aumentar tus conversiones.</p>
   </div>
 
@@ -232,18 +232,14 @@
     </div>
   </section>
 
-  <!-- NUEVA SECCIÓN CONTADOR -->
+  <!-- CONTADOR DE USUARIOS -->
   <div class="user-counter">
     <h2>Usuarios Activos del Servicio</h2>
     <div id="userCount" class="counter-number">0</div>
     <div class="counter-label">personas ya están utilizando el asistente inteligente</div>
   </div>
 
-  <div class="cta-video">
-    <p>¿Listo para implementar tu asistente hoy?</p>
-    <center><a href="#planes" class="btn">¡Comienza ahora!</a></center>
-  </div>
-
+  <!-- PLANES -->
   <div class="plans" id="planes">
     <div class="plan">
       <h2>Plan Básico</h2>
@@ -254,7 +250,7 @@
         <li>Respuestas automáticas 24/7</li>
         <li>Soporte por WhatsApp</li>
       </ul>
-      <a class="btn" href="#">Quiero este plan</a>
+      <a class="btn plan-btn" data-plan="Básico" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20más%20información%20sobre%20el%20Plan%20Básico%20de%20SocialTrove." target="_blank">Quiero este plan</a>
     </div>
 
     <div class="plan">
@@ -265,7 +261,7 @@
         <li>Optimización de respuestas IA</li>
         <li>Reportes semanales de rendimiento</li>
       </ul>
-      <a class="btn" href="#">Quiero este plan</a>
+      <a class="btn plan-btn" data-plan="PRO" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20más%20información%20sobre%20el%20Plan%20PRO%20de%20SocialTrove." target="_blank">Quiero este plan</a>
     </div>
 
     <div class="plan">
@@ -277,7 +273,7 @@
         <li>Gestión avanzada de leads</li>
         <li>Soporte VIP 24/7 con prioridad máxima</li>
       </ul>
-      <a class="btn" href="#">Quiero este plan</a>
+      <a class="btn plan-btn" data-plan="ELITE" href="https://wa.me/573117947704?text=Hola%2C%20quiero%20más%20información%20sobre%20el%20Plan%20ELITE%20de%20SocialTrove." target="_blank">Quiero este plan</a>
     </div>
   </div>
 
@@ -289,7 +285,7 @@
       <p>Obtén el <strong>Plan ELITE</strong> el primer mes por solo <strong>$57 USD</strong>.<br><br>
       Oferta exclusiva disponible durante las próximas:</p>
       <div id="countdown">24:00:00</div><br>
-      <a href="#" class="btn">Aprovechar ahora</a>
+      <a href="https://wa.me/573117947704?text=Hola%2C%20quiero%20aprovechar%20la%20promoción%20del%20Plan%20ELITE%20por%2057%20USD." class="btn" target="_blank">Aprovechar ahora</a>
     </div>
   </div>
 
@@ -349,11 +345,20 @@
 
     // === CONTADOR DE USUARIOS ===
     const userCountEl = document.getElementById('userCount');
-    let userCount = localStorage.getItem('userCount') ? parseInt(localStorage.getItem('userCount')) : 80;
-    userCount++;
+    let userCount = localStorage.getItem('userCount') ? parseInt(localStorage.getItem('userCount')) : 97;
     localStorage.setItem('userCount', userCount);
     userCountEl.textContent = userCount.toLocaleString();
+
+    // Incrementar contador al hacer clic en un plan
+    document.querySelectorAll('.plan-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        userCount++;
+        localStorage.setItem('userCount', userCount);
+        userCountEl.textContent = userCount.toLocaleString();
+      });
+    });
   </script>
 </body>
 </html>
+
 
