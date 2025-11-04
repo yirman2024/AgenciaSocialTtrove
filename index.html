@@ -125,7 +125,7 @@
       margin-bottom: 15px;
     }
 
-    /* === BOTONES (CTA + PLANES) === */
+    /* === BOTONES === */
     .btn {
       display: inline-block;
       padding: 12px 25px;
@@ -206,6 +206,59 @@
       color: #ff9900;
     }
 
+    /* === MODAL PROMOCIONAL === */
+    .promo-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .promo-content {
+      background: linear-gradient(145deg, #0d0d0d, #171717);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      max-width: 500px;
+      box-shadow: 0 0 30px rgba(0,198,255,0.6);
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    .promo-content h2 {
+      color: #00e1ff;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .promo-content p {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .close-btn {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .close-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0,198,255,0.8);
+    }
+
     /* === FOOTER === */
     footer {
       text-align: center;
@@ -228,7 +281,6 @@
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
   </style>
 </head>
 <body>
@@ -254,7 +306,7 @@
   <section class="video-section">
     <h2>🎥 Mira cómo funciona</h2>
     <div class="video-container">
-      <video controls autoplay muted loop>
+      <video id="promoVideo" controls autoplay muted>
         <source src="video/Presentacion.mp4" type="video/mp4">
         Tu navegador no soporta la reproducción de videos.
       </video>
@@ -269,7 +321,6 @@
 
   <!-- PLANES -->
   <div class="plans" id="planes">
-    <!-- PLAN BÁSICO -->
     <div class="plan">
       <h2>Plan Básico</h2>
       <p class="price">$49 / mes</p>
@@ -283,7 +334,6 @@
       <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan Básico..." target="_blank">Quiero este plan</a>
     </div>
 
-    <!-- PLAN PRO -->
     <div class="plan">
       <h2>Plan PRO</h2>
       <p class="price">$99 / mes</p>
@@ -297,18 +347,28 @@
       <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan PRO..." target="_blank">Quiero este plan</a>
     </div>
 
-    <!-- PLAN ELITE -->
     <div class="plan">
       <h2>Plan ELITE</h2>
       <p class="price">$199 / mes</p>
       <ul>
         <li>Todo en el Plan PRO</li>
+        <li>2 asistentes personalizados</li>
         <li>Gestión avanzada de leads y ventas</li>
         <li>Integración con CRM y chat multicanal</li>
         <li>Asesor estratégico personalizado</li>
         <li>Soporte VIP 24/7 con prioridad máxima</li>
       </ul>
       <a class="btn" href="https://wa.me/573117947704?text=Hola, estoy interesado en el Plan ELITE..." target="_blank">Quiero este plan</a>
+    </div>
+  </div>
+
+  <!-- MODAL PROMOCIONAL -->
+  <div class="promo-modal" id="promoModal">
+    <div class="promo-content">
+      <h2>🔥 Promoción Especial 🔥</h2>
+      <p>Obtén el <strong>Plan ELITE</strong> el primer mes por solo <strong>$57 USD</strong>.<br><br> Aprovecha esta oferta exclusiva por tiempo limitado.</p>
+      <a href="https://wa.me/573117947704?text=Hola, quiero aprovechar la promoción del Plan ELITE por $57 USD el primer mes." class="btn" target="_blank">Aprovechar ahora</a><br><br>
+      <button class="close-btn" onclick="closeModal()">Cerrar</button>
     </div>
   </div>
 
@@ -319,6 +379,41 @@
     <a href="terminos.html" target="_blank">Términos y Condiciones</a>
   </footer>
 
+  <!-- SCRIPT PROMOCIÓN -->
+  <script>
+    const modal = document.getElementById('promoModal');
+    const video = document.getElementById('promoVideo');
+    let shown = false;
+
+    function openModal() {
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    // Mostrar al cargar la página
+    window.addEventListener('load', () => {
+      setTimeout(openModal, 2500); // aparece tras 2.5s
+    });
+
+    // Mostrar cuando el video llega a la mitad o finaliza
+    video.addEventListener('timeupdate', () => {
+      const mitad = video.duration / 2;
+      if (!shown && video.currentTime >= mitad) {
+        openModal();
+        shown = true;
+      }
+    });
+
+    video.addEventListener('ended', () => {
+      if (!shown) {
+        openModal();
+        shown = true;
+      }
+    });
+  </script>
+
 </body>
 </html>
-
